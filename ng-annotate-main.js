@@ -347,7 +347,7 @@ function matchRegular(node, ctx) {
 
     // hardcoded exception: foo.decorator is generally considered a short-form
     // declaration but $stateProvider.decorator is not. see https://github.com/olov/ng-annotate/issues/82
-    if (obj.name === "$stateProvider" && method.name === "decorator") {
+    if ((obj.name === "$stateProvider" || obj.name === "$stateRegistry") && method.name === "decorator") {
         return false;
     }
 
